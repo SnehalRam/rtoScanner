@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सुरक्षित वेब पृष्ठ</title>
     
     <!-- सुरक्षा प्रमुख शीर्षके -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://trustedsource.com; script-src 'self'; style-src 'self'; frame-src 'self' https://www.youtube-nocookie.com;">
@@ -31,15 +32,15 @@
             max-width: 600px;
             margin: auto;
             overflow: hidden;
+            white-space: nowrap;
         }
         .carousel {
             display: flex;
-            width: 100%;
             transition: transform 0.5s ease-in-out;
         }
         .carousel img, .carousel iframe {
             flex: 0 0 100%;
-            width: 100%;
+            width: 600px;
             height: 300px;
             border: 2px solid #000;
             border-radius: 10px;
@@ -66,9 +67,9 @@
             <img src="icon.png" alt="सुरक्षित चिन्ह">
         </div>
 
-        <!-- प्रतिमा स्लाइडर -->
+        <!-- प्रतिमा आणि व्हिडिओ स्लाइडर -->
         <div class="carousel-container">
-            <div class="carousel" id="imageCarousel">
+            <div class="carousel" id="mediaCarousel">
                 <img src="image1.jpg" alt="सुरक्षित प्रतिमा 1">
                 <img src="image2.jpg" alt="सुरक्षित प्रतिमा 2">
                 <img src="image3.jpg" alt="सुरक्षित प्रतिमा 3">
@@ -77,10 +78,8 @@
                 <img src="image6.jpg" alt="सुरक्षित प्रतिमा 6">
             </div>
         </div>
-        
-        <!-- व्हिडिओ स्लाइडर -->
-        <div class="carousel-container">
-            <div class="carousel" id="videoCarousel">
+                <div class="carousel-container">
+            <div class="carousel" id="mediaCarousel">
                 <iframe src="https://www.youtube-nocookie.com/embed/videoID1" allowfullscreen></iframe>
                 <iframe src="https://www.youtube-nocookie.com/embed/videoID2" allowfullscreen></iframe>
                 <iframe src="https://www.youtube-nocookie.com/embed/videoID3" allowfullscreen></iframe>
@@ -89,7 +88,7 @@
                 <iframe src="https://www.youtube-nocookie.com/embed/videoID6" allowfullscreen></iframe>
             </div>
         </div>
-        
+
         <!-- तळाशी अतिरिक्त प्रतिमा -->
         <div>
             <img src="bottom-image.jpg" alt="अतिरिक्त प्रतिमा" style="width: 100%; height: auto; border-radius: 10px; margin-top: 20px;">
@@ -109,8 +108,7 @@
             }, 2000);
         }
 
-        autoScrollCarousel("imageCarousel");
-        autoScrollCarousel("videoCarousel");
+        autoScrollCarousel("mediaCarousel");
     </script>
 </body>
 </html>
