@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Safety Instructions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .instruction {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .instruction img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border: 2px solid #000;
+            border-radius: 10px;
+        }
+        .text {
+            font-size: 18px;
+        }
+        .language-toggle {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleLanguage(lang) {
+            document.querySelectorAll('.en').forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+            document.querySelectorAll('.mr').forEach(el => el.style.display = lang === 'mr' ? 'block' : 'none');
+        }
+    </script>
+</head>
+<body>
+    <h2>Bus Safety Instructions for Kids</h2>
+    
+    <div class="language-toggle">
+        <button onclick="toggleLanguage('en')">English</button>
+        <button onclick="toggleLanguage('mr')">Marathi</button>
+    </div>
+    
+    <div class="instruction">
+        <img src="image1.jpg" alt="Do not stand on the seat">
+        <p class="text en"><strong>Do not stand on the seat</strong></p>
+        <p class="text mr hidden"><strong>सीटवर उभे राहू नका</strong></p>
+    </div>
+    
+    <div class="instruction">
+        <img src="image2.jpg" alt="Do not put your hands outside the window">
+        <p class="text en"><strong>Do not put your hands outside the window</strong></p>
+        <p class="text mr hidden"><strong>खिडकीबाहेर हात टाकू नका</strong></p>
+    </div>
+    
+    <div class="instruction">
+        <img src="image3.jpg" alt="Do not shout or talk loudly">
+        <p class="text en"><strong>Do not shout or talk loudly</strong></p>
+        <p class="text mr hidden"><strong>मोठ्याने बोलू नका किंवा ओरडू नका</strong></p>
+    </div>
+    
+    <div class="instruction">
+        <img src="image4.jpg" alt="Do not spill food on the seat">
+        <p class="text en"><strong>Do not spill food on the seat</strong></p>
+        <p class="text mr hidden"><strong>सीटवर खाऊन अन्न सांडू नका</strong></p>
+    </div>
+
+    <div class="instruction">
+        <img src="image5.jpg" alt="Do not push or fight">
+        <p class="text en"><strong>Do not push or fight</strong></p>
+        <p class="text mr hidden"><strong>इतर मुलांना ढकलू नका किंवा भांडू नका</strong></p>
+    </div>
+
+    <div class="instruction">
+        <img src="image6.jpg" alt="Do not disturb the driver">
+        <p class="text en"><strong>Do not disturb the driver</strong></p>
+        <p class="text mr hidden"><strong>ड्रायव्हरला त्रास देऊ नका</strong></p>
+    </div>
+
+    <div class="instruction">
+        <img src="image7.jpg" alt="Do not throw trash inside the bus">
+        <p class="text en"><strong>Do not throw trash inside the bus</strong></p>
+        <p class="text mr hidden"><strong>बसमध्ये कचरा टाकू नका</strong></p>
+    </div>
+</body>
+</html>
