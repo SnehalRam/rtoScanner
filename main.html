@@ -18,6 +18,7 @@
             margin: auto;
             padding: 20px;
             background-color: #f4f4f4;
+            text-align: center;
         }
         .container {
             background: white;
@@ -25,25 +26,28 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
         }
-        .content-item {
-            margin-bottom: 20px;
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 10px;
+            padding: 10px;
         }
-        .content-item img {
-            max-width: 100%;
+        .carousel img, .carousel iframe {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 600px;
             height: auto;
             border: 2px solid #000;
             border-radius: 10px;
+            scroll-snap-align: center;
         }
         .secure-link {
             display: block;
             text-decoration: none;
             color: blue;
             font-weight: bold;
-        }
-        iframe {
-            width: 100%;
-            height: 315px;
-            border: none;
+            margin-top: 10px;
         }
     </style>
     
@@ -52,28 +56,30 @@
     <div class="container">
         
         <!-- Icon -->
-        <div class="content-item">
-            <img src="image1.jpg" alt="Secure Icon">
+        <div>
+            <img src="icon.png" alt="Secure Icon">
         </div>
 
-        <!-- Images -->
-        <div class="content-item">
-            <img src="image1.jpg" alt="Secure Image 1">
+        <!-- PDF Section -->
+        <div>
+            <a class="secure-link" href="secure_pdf1.pdf" download>Download PDF 1</a>
+            <a class="secure-link" href="secure_pdf2.pdf" download>Download PDF 2</a>
         </div>
-        <div class="content-item">
+
+        <!-- Images Carousel -->
+        <div class="carousel">
+            <img src="image1.jpg" alt="Secure Image 1">
             <img src="image2.jpg" alt="Secure Image 2">
         </div>
         
-        <!-- Videos -->
-        <div class="content-item">
+        <!-- Videos Carousel -->
+        <div class="carousel">
             <iframe src="https://www.youtube-nocookie.com/embed/videoID1" allowfullscreen></iframe>
-        </div>
-        <div class="content-item">
             <iframe src="https://www.youtube-nocookie.com/embed/videoID2" allowfullscreen></iframe>
         </div>
 
         <!-- Contact Section -->
-        <div class="content-item">
+        <div>
             <p>Contact us at: <a href="mailto:support@example.com">support@example.com</a></p>
         </div>
     </div>
