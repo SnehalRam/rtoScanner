@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Web Page</title>
     
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://trustedsource.com; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; frame-src 'self' https://www.youtube-nocookie.com;">
+    <!-- सुरक्षा प्रमुख शीर्षके -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://trustedsource.com; script-src 'self'; style-src 'self'; frame-src 'self' https://www.youtube-nocookie.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
@@ -26,21 +25,24 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
         }
-        .carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            gap: 10px;
-            padding: 10px;
-        }
-        .carousel img, .carousel iframe {
-            flex: 0 0 auto;
+        .carousel-container {
+            position: relative;
             width: 100%;
             max-width: 600px;
-            height: auto;
+            margin: auto;
+            overflow: hidden;
+        }
+        .carousel {
+            display: flex;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel img, .carousel iframe {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 300px;
             border: 2px solid #000;
             border-radius: 10px;
-            scroll-snap-align: center;
         }
         .secure-link {
             display: block;
@@ -49,39 +51,66 @@
             font-weight: bold;
             margin-top: 10px;
         }
+        .icon-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
     </style>
-    
 </head>
 <body>
     <div class="container">
         
-        <!-- Icon -->
-        <div>
-            <img src="icon.png" alt="Secure Icon">
+        <!-- चिन्ह -->
+        <div class="icon-container">
+            <img src="icon.png" alt="सुरक्षित चिन्ह">
         </div>
 
-        <!-- PDF Section -->
-        <div>
-            <a class="secure-link" href="secure_pdf1.pdf" download>Download PDF 1</a>
-            <a class="secure-link" href="secure_pdf2.pdf" download>Download PDF 2</a>
-        </div>
-
-        <!-- Images Carousel -->
-        <div class="carousel">
-            <img src="image1.jpg" alt="Secure Image 1">
-            <img src="image2.jpg" alt="Secure Image 2">
+        <!-- प्रतिमा स्लाइडर -->
+        <div class="carousel-container">
+            <div class="carousel" id="imageCarousel">
+                <img src="image1.jpg" alt="सुरक्षित प्रतिमा 1">
+                <img src="image2.jpg" alt="सुरक्षित प्रतिमा 2">
+                <img src="image3.jpg" alt="सुरक्षित प्रतिमा 3">
+                <img src="image4.jpg" alt="सुरक्षित प्रतिमा 4">
+                <img src="image5.jpg" alt="सुरक्षित प्रतिमा 5">
+                <img src="image6.jpg" alt="सुरक्षित प्रतिमा 6">
+            </div>
         </div>
         
-        <!-- Videos Carousel -->
-        <div class="carousel">
-            <iframe src="https://www.youtube-nocookie.com/embed/videoID1" allowfullscreen></iframe>
-            <iframe src="https://www.youtube-nocookie.com/embed/videoID2" allowfullscreen></iframe>
+        <!-- व्हिडिओ स्लाइडर -->
+        <div class="carousel-container">
+            <div class="carousel" id="videoCarousel">
+                <iframe src="https://www.youtube-nocookie.com/embed/videoID1" allowfullscreen></iframe>
+                <iframe src="https://www.youtube-nocookie.com/embed/videoID2" allowfullscreen></iframe>
+                <iframe src="https://www.youtube-nocookie.com/embed/videoID3" allowfullscreen></iframe>
+                <iframe src="https://www.youtube-nocookie.com/embed/videoID4" allowfullscreen></iframe>
+                <iframe src="https://www.youtube-nocookie.com/embed/videoID5" allowfullscreen></iframe>
+                <iframe src="https://www.youtube-nocookie.com/embed/videoID6" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+        <!-- तळाशी अतिरिक्त प्रतिमा -->
+        <div>
+            <img src="bottom-image.jpg" alt="अतिरिक्त प्रतिमा" style="width: 100%; height: auto; border-radius: 10px; margin-top: 20px;">
         </div>
 
-        <!-- Contact Section -->
-        <div>
-            <p>Contact us at: <a href="mailto:support@example.com">support@example.com</a></p>
-        </div>
+        <!-- धन्यवाद संदेश -->
+        <h3>धन्यवाद!</h3>
     </div>
+
+    <script>
+        function autoScrollCarousel(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            let index = 0;
+            setInterval(() => {
+                index = (index + 1) % carousel.children.length;
+                carousel.style.transform = `translateX(-${index * 100}%)`;
+            }, 2000);
+        }
+
+        autoScrollCarousel("imageCarousel");
+        autoScrollCarousel("videoCarousel");
+    </script>
 </body>
 </html>
